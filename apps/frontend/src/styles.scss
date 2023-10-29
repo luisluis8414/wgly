@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans&family=Sono&display=swap');
+
 :root {
+  --app: #f8faf0;
+
   --primary: #386a20;
   --on-primary: #ffffff;
   --primary-container: #b7f397;
@@ -29,4 +33,11 @@
   --spacing-large: 10px;
   --spacing-x-large: 12px;
   --spacing-xx-large: 14px;
+}
+
+html {
+  background-color: var(--app);
+  font-family: 'Inter', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Sono', monospace;
 }
