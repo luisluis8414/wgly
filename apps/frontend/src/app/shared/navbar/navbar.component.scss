@@ -1,10 +1,25 @@
 :host {
   display: flex;
-  width: 100%;
   height: fit-content;
-  padding: var(--spacing-medium);
+  width: fit-content;
 
   .icon {
     cursor: pointer;
+    padding: var(--spacing-large);
+
+    &--open {
+      color: var(--text-color);
+    }
+  }
+
+  .navbar {
+    background-color: var(--on-primary-container);
+    height: 100vh;
+    position: fixed;
+    width: 30vw;
+    z-index: 100;
+
+    border-radius: 0 var(--border-radius-xx-large) var(--border-radius-xx-large)
+      0;
   }
 }
