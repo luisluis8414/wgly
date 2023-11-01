@@ -1,3 +1,15 @@
 :host {
   font-family: 'Material Symbols Outlined', sans-serif;
+
+  &.small {
+    font-size: 14px;
+  }
+
+  &.medium {
+    font-size: 18px;
+  }
+
+  &.large {
+    font-size: 40px;
+  }
 }

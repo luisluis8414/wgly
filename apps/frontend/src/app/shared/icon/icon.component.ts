@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,4 +8,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
 })
-export class IconComponent {}
+export class IconComponent {
+  @Input() @HostBinding('class') size:
+    | 'small'
+    | 'medium'
+    | 'large'
+    | 'x-large' = 'small';
+}
