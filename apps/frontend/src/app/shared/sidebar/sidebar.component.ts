@@ -13,8 +13,8 @@ import {
 @Component({
   selector: 'wgplanner-navbar',
   standalone: true,
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss'],
   imports: [CommonModule, TextComponent, IconComponent],
   animations: [
     trigger('sidebarAnimation', [
@@ -24,7 +24,6 @@ import {
           width: '0',
           opacity: 0,
           overflow: 'hidden',
-          display: 'none',
         })
       ),
       state(
@@ -33,7 +32,6 @@ import {
           width: '30vw',
           opacity: 1,
           overflow: 'hidden',
-          display: 'block',
         })
       ),
       transition('collapsed => expanded', animate('200ms ease-in-out')),
@@ -41,7 +39,7 @@ import {
     ]),
   ],
 })
-export class NavbarComponent {
+export class SidebarComponent {
   protected sidebarCollapsed = true;
   clickToggleSidbar() {
     this.sidebarCollapsed = !this.sidebarCollapsed;
