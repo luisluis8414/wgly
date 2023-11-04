@@ -1,13 +1,13 @@
 @use '../../../mixins.scss';
 :host {
   border-radius: var(--border-radius-full);
-  background-color: #333333;
+  background-color: var(--tertiary-container);
   padding: var(--spacing-large);
   display: flex;
   align-items: center;
   justify-content: center;
 
-  @include mixins.hover {
-    background-color: lighten(#333333, 10%);
-  }
+  //   @include mixins.hover {
+  //     background-color: var(--tertiary-hover);
+  //   }
 }

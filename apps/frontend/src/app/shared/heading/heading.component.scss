@@ -1,5 +1,28 @@
 :host {
-  color: var(--text-color);
   font-weight: 20px;
   font-size: 30px;
+
+  .primary {
+    color: var(--on-primary);
+  }
+
+  .secondary {
+    color: var(--on-secondary);
+  }
+
+  .tertiary {
+    color: var(--on-tertiary);
+  }
+
+  .primaryContainer {
+    color: var(--on-primary-container);
+  }
+
+  .secondaryContainer {
+    color: var(--on-secondary-container);
+  }
+
+  .tertiaryContainer {
+    color: var(--on-tertiary-container);
+  }
 }
