@@ -1,4 +1,7 @@
 :host {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   height: fit-content;
   width: fit-content;
@@ -15,10 +18,9 @@
   .navbar {
     background-color: var(--on-primary-container);
     height: 100vh;
-    position: fixed;
     width: 30vw;
     z-index: 100;
-
+    position: absolute;
     border-radius: 0 var(--border-radius-xx-large) var(--border-radius-xx-large)
       0;
   }

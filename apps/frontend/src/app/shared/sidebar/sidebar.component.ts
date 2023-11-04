@@ -29,7 +29,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
         })
       ),
       transition('collapsed => expanded', animate('200ms ease-in-out')),
-      transition('expanded => collapsed', animate('100ms ease-out')),
+      transition('expanded => collapsed', animate('200ms ease-in-out')),
     ]),
   ],
 })
