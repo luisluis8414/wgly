@@ -1,4 +1,8 @@
-<wgplanner-icon class="icon" size="x-large" (click)="clickToggleSidbar()"
+<wgplanner-icon
+  class="icon"
+  size="x-large"
+  (click)="clickToggleSidebar()"
+  *ngIf="sidebarCollapsed"
   >menu</wgplanner-icon
 >
 <div
@@ -6,9 +10,10 @@
   [@sidebarAnimation]="sidebarCollapsed ? 'collapsed' : 'expanded'"
 >
   <wgplanner-icon
+    *ngIf="!sidebarCollapsed"
     class="icon icon--open"
     size="x-large"
-    (click)="clickToggleSidbar()"
+    (click)="clickToggleSidebar()"
     >menu_open</wgplanner-icon
   >
 </div>

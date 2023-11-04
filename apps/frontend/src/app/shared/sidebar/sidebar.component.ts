@@ -1,17 +1,11 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TextComponent } from '../text/text.component';
-import { IconComponent } from '../icon/icon.component';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import { Component } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { TextComponent } from '../text/text.component'
+import { IconComponent } from '../icon/icon.component'
+import { animate, state, style, transition, trigger } from '@angular/animations'
 
 @Component({
-  selector: 'wgplanner-navbar',
+  selector: 'wgplanner-sidebar',
   standalone: true,
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
@@ -40,8 +34,9 @@ import {
   ],
 })
 export class SidebarComponent {
-  protected sidebarCollapsed = true;
-  clickToggleSidbar() {
-    this.sidebarCollapsed = !this.sidebarCollapsed;
+  protected sidebarCollapsed = true
+
+  clickToggleSidebar() {
+    this.sidebarCollapsed = !this.sidebarCollapsed
   }
 }
