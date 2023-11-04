@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
 
-  //   @include mixins.hover {
-  //     background-color: var(--tertiary-hover);
-  //   }
+  @include mixins.hover {
+    background-color: var(--tertiary-container-hover);
+  }
 }
