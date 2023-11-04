@@ -2,7 +2,9 @@
   "name": "@wgplanner/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "wgplanner": "concurrently \"nx serve backend\" \"nx serve frontend\""
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~16.2.0",
@@ -15,7 +17,11 @@
     "@angular/router": "~16.2.0",
     "@nestjs/common": "^10.0.2",
     "@nestjs/core": "^10.0.2",
-    "@nestjs/platform-express": "^10.0.2",
+    "@nestjs/platform-express": "^10.2.8",
+    "@ngrx/effects": "^16.3.0",
+    "@ngrx/entity": "^16.3.0",
+    "@ngrx/store": "^16.3.0",
+    "@ngrx/store-devtools": "^16.3.0",
     "@nx/angular": "17.0.2",
     "@prisma/client": "^5.5.2",
     "axios": "^1.0.0",
@@ -55,6 +61,7 @@
     "@types/node": "~18.7.1",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
+    "concurrently": "^8.2.2",
     "cypress": "^13.0.0",
     "eslint": "~8.46.0",
     "eslint-config-prettier": "^9.0.0",
