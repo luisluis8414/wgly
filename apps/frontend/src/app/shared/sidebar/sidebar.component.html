@@ -16,4 +16,9 @@
     (click)="clickToggleSidebar()"
     >menu_open</wgplanner-icon
   >
+  <div class="navbar__navItems">
+    <wgplanner-pill [routerLink]="pathResolver.getHome()">
+      <wgplanner-heading>Home</wgplanner-heading>
+    </wgplanner-pill>
+  </div>
 </div>

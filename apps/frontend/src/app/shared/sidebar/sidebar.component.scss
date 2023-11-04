@@ -1,27 +1,39 @@
 :host {
-  position: fixed;
-  top: 0;
-  left: 0;
   display: flex;
   height: fit-content;
+  left: 0;
+  position: fixed;
+  top: 0;
   width: fit-content;
 
   .icon {
+    position: absolute;
     cursor: pointer;
     padding: var(--spacing-large);
-
+    top: 0;
+    left: 0;
     &--open {
       color: var(--text-color);
     }
   }
 
   .navbar {
+    align-items: center;
     background-color: var(--on-primary-container);
+    display: flex;
     height: 100vh;
+    justify-content: center;
+    position: absolute;
     width: 30vw;
     z-index: 100;
-    position: absolute;
+
     border-radius: 0 var(--border-radius-xx-large) var(--border-radius-xx-large)
       0;
+    &__navItems {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+    }
   }
 }
