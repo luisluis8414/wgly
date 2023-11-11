@@ -11,27 +11,14 @@ datasource db {
 }
 
 model User {
-  id           String    @id @unique
-
-  auth_session Session[]
-  key          Key[]
+  discordId  String    @unique
+  discordTag String
+  email      String    @unique
+  avatar     String
 }
 
-model Session {
-  id             String @id @unique
-  user_id        String
-  active_expires BigInt
-  idle_expires   BigInt
-  user           User   @relation(references: [id], fields: [user_id], onDelete: Cascade)
-
-  @@index([user_id])
-}
-
-model Key {
-  id              String  @id @unique
-  hashed_password String?
-  user_id         String
-  user            User    @relation(references: [id], fields: [user_id], onDelete: Cascade)
-
-  @@index([user_id])
+model OAuth2Credentials {
+  discordId    String   @unique
+  accessToken  String
+  refreshToken String
 }
