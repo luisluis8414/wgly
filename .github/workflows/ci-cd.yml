@@ -24,5 +24,5 @@ jobs:
 
       - name: Build project
         run: |
-          nx serve frontend
-          nx serve backend
+          npx nx serve frontend
+          npx nx serve backend
