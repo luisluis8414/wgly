@@ -1,9 +1,9 @@
 {
-  "name": "@wgplanner/source",
+  "name": "@wgly/source",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "wgplanner": "concurrently \"nx serve backend\" \"nx serve frontend\""
+    "wgly": "concurrently \"nx serve backend\" \"nx serve frontend\""
   },
   "private": true,
   "dependencies": {

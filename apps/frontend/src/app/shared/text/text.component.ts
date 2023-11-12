@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
 @Component({
-  selector: 'wgplanner-text',
+  selector: 'wgly-text',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './text.component.html',

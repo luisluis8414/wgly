@@ -1,24 +1,24 @@
-<wgplanner-icon
+<wgly-icon
   class="icon"
   size="x-large"
   (click)="clickToggleSidebar()"
   *ngIf="sidebarCollapsed"
-  >menu</wgplanner-icon
+  >menu</wgly-icon
 >
 <div
   class="navbar"
   [@sidebarAnimation]="sidebarCollapsed ? 'collapsed' : 'expanded'"
 >
-  <wgplanner-icon
+  <wgly-icon
     *ngIf="!sidebarCollapsed"
     class="icon icon--open"
     size="x-large"
     (click)="clickToggleSidebar()"
-    >menu_open</wgplanner-icon
+    >menu_open</wgly-icon
   >
   <div class="navbar__navItems">
-    <wgplanner-pill [routerLink]="pathResolver.getHome()">
-      <wgplanner-heading type="tertiaryContainer">Home</wgplanner-heading>
-    </wgplanner-pill>
+    <wgly-pill [routerLink]="pathResolver.getHome()">
+      <wgly-heading type="tertiaryContainer">Home</wgly-heading>
+    </wgly-pill>
   </div>
 </div>

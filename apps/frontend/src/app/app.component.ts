@@ -1,14 +1,14 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, ViewEncapsulation } from '@angular/core'
+import { RouterModule } from '@angular/router'
 
 @Component({
   standalone: true,
   imports: [RouterModule],
-  selector: 'wgplanner-root',
+  selector: 'wgly-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'frontend'
 }

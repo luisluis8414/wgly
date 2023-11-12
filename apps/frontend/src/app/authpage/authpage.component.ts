@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common'
 import { SidebarComponent } from '../shared/sidebar/sidebar.component'
 
 @Component({
-  selector: 'wgplanner-authpage',
+  selector: 'wgly-authpage',
   standalone: true,
   templateUrl: './authpage.component.html',
   styleUrls: ['./authpage.component.scss'],

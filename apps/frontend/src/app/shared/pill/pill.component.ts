@@ -4,7 +4,7 @@ import { IconComponent } from '../icon/icon.component'
 import { TextComponent } from '../text/text.component'
 
 @Component({
-  selector: 'wgplanner-pill',
+  selector: 'wgly-pill',
   standalone: true,
   templateUrl: './pill.component.html',
   styleUrls: ['./pill.component.scss'],

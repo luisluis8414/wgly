@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router'
 import { PathResolverService } from '../../services/pathResolver.service'
 
 @Component({
-  selector: 'wgplanner-sidebar',
+  selector: 'wgly-sidebar',
   standalone: true,
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],

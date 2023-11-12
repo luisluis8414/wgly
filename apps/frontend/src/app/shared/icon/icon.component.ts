@@ -1,8 +1,8 @@
-import { Component, HostBinding, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostBinding, Input } from '@angular/core'
+import { CommonModule } from '@angular/common'
 
 @Component({
-  selector: 'wgplanner-icon',
+  selector: 'wgly-icon',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './icon.component.html',
@@ -13,5 +13,5 @@ export class IconComponent {
     | 'small'
     | 'medium'
     | 'large'
-    | 'x-large' = 'small';
+    | 'x-large' = 'small'
 }

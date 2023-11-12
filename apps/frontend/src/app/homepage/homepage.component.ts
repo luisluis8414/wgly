@@ -6,7 +6,7 @@ import { SidebarComponent } from '../shared/sidebar/sidebar.component'
 import { AuthpageComponent } from '../authpage/authpage.component'
 
 @Component({
-  selector: 'wgplanner-homepage',
+  selector: 'wgly-homepage',
   standalone: true,
   imports: [CommonModule, IconComponent, SidebarComponent, AuthpageComponent],
   templateUrl: './homepage.component.html',

@@ -2,7 +2,7 @@ import { Component, HostBinding, Input } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
 @Component({
-  selector: 'wgplanner-heading',
+  selector: 'wgly-heading',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './heading.component.html',
