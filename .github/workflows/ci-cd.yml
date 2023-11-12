@@ -24,5 +24,10 @@ jobs:
 
       - name: Build project
         run: |
-          npx nx serve frontend
-          npx nx serve backend
+          npx nx build frontend
+          npx nx build backend
+
+      - name: Test project
+        run: |
+          npx nx test frontend
+          npx nx test backend

@@ -1,11 +1,11 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig } from '@angular/core'
 import {
   provideRouter,
   withEnabledBlockingInitialNavigation,
-} from '@angular/router';
-import { appRoutes } from './app.routes';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideHttpClient } from '@angular/common/http';
+} from '@angular/router'
+import { appRoutes } from './app.routes'
+import { provideAnimations } from '@angular/platform-browser/animations'
+import { provideHttpClient } from '@angular/common/http'
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,4 +13,4 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideRouter(appRoutes, withEnabledBlockingInitialNavigation()),
   ],
-};
+}

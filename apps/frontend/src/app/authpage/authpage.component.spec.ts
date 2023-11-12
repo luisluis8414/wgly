@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { AuthpageComponent } from './authpage.component'
+import { ActivatedRoute } from '@angular/router'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 describe('AuthpageComponent', () => {
   let component: AuthpageComponent
@@ -7,7 +9,15 @@ describe('AuthpageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AuthpageComponent],
+      imports: [AuthpageComponent, BrowserAnimationsModule],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: { params: { id: '24fkzrw3487943uf358lovd' } },
+          },
+        },
+      ],
     }).compileComponents()
 
     fixture = TestBed.createComponent(AuthpageComponent)
