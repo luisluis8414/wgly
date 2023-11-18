@@ -59,4 +59,15 @@ export class SidebarComponent {
   protected discordLogin(): void {
     this.authService.getDiscordLogin()
   }
+
+  test() {
+    this.authService.test().subscribe(
+      (response) => {
+        console.log(response) // Logging the response
+      },
+      (error) => {
+        console.error('Error:', error) // Handling errors
+      }
+    )
+  }
 }

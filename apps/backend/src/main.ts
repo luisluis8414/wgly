@@ -3,10 +3,12 @@ import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app/app.module'
 import session from 'express-session'
 import passport from 'passport'
+import cookieParser from 'cookie-parser'
+import * as dotenv from 'dotenv'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
-
+  dotenv.config()
   app.enableCors({
     origin: 'http://localhost:4200',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -22,14 +24,15 @@ async function bootstrap() {
       },
     })
   )
+  app.use(cookieParser())
 
   app.use(passport.initialize())
+
   app.use(passport.session())
+
   const port = process.env.PORT
   await app.listen(port)
-  Logger.log(
-    `🚀 Application is running on: http://localhost:${port}/` //${globalPrefix}
-  )
+  Logger.log(`🚀 Application is running on: http://localhost:${port}/`)
 }
 
 bootstrap()

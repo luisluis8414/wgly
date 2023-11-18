@@ -1,23 +1,41 @@
-import { Controller, Get, Post, Req, UseGuards } from '@nestjs/common'
-import { Request } from 'express'
-import { AuthenticatedGuard, DiscordAuthGuard } from '../utils/Guards'
+import {
+  Controller,
+  Get,
+  Inject,
+  Post,
+  Req,
+  Res,
+  UseGuards,
+} from '@nestjs/common'
+import { Request, Response } from 'express'
+import { JwtAuthGuard, DiscordAuthGuard } from '../utils/Guards'
+import { AuthService } from '../services/auth.service'
+import { User } from '@prisma/client'
 
 @Controller('auth')
 export class AuthController {
-  @Get('discord/redirect')
-  @UseGuards(DiscordAuthGuard)
-  redirect() {
-    return { msg: 'Redirect' }
-  }
+  constructor(
+    @Inject('AUTH_SERVICE') private readonly authService: AuthService
+  ) {}
 
   @Get('login')
   @UseGuards(DiscordAuthGuard)
   login() {}
 
+  @Get('discord/redirect')
+  @UseGuards(DiscordAuthGuard)
+  redirect(@Req() req: Request, @Res() res: Response) {
+    const jwt = this.authService.generateJwt(req.user as User)
+    res.cookie('jwt', jwt, { httpOnly: true, secure: false })
+    const frontendUrl = 'http://localhost:4200'
+    res.redirect(frontendUrl)
+  }
+
   @Get('status')
-  @UseGuards(AuthenticatedGuard)
+  @UseGuards(JwtAuthGuard)
   status(@Req() req: Request) {
-    return req
+    console.log(req)
+    return 'test'
   }
 
   @Post('logout')

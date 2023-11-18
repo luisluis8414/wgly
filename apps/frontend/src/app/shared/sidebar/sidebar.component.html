@@ -20,7 +20,7 @@
     <wgly-pill [routerLink]="pathResolver.getHome()">
       <wgly-heading type="tertiaryContainer">Home</wgly-heading>
     </wgly-pill>
-    <wgly-pill [routerLink]="pathResolver.getHome()">
+    <wgly-pill [routerLink]="pathResolver.getHome()" (click)="test()">
       <wgly-heading type="tertiaryContainer">Einkaufen</wgly-heading>
     </wgly-pill>
   </div>
