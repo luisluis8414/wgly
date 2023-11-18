@@ -4,8 +4,16 @@ import { AuthService } from './services/auth.service'
 import { DiscordStrategy } from './utils/DiscordStrategy'
 import { SessionSerializer } from './utils/SessionSerializer'
 import { PrismaService } from '../prisma.service'
+import { JwtModule } from '@nestjs/jwt'
 
 @Module({
+  imports: [
+    JwtModule.register({
+      global: true,
+      secret: 'test',
+      signOptions: { expiresIn: '60m' },
+    }),
+  ],
   controllers: [AuthController],
   providers: [
     DiscordStrategy,

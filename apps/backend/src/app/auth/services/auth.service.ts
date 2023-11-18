@@ -3,10 +3,14 @@ import { FindOAuth2Params } from '../../models/types'
 import { PrismaService } from '../../prisma.service'
 import { OAuth2Credentials, User } from '@prisma/client'
 import { IAuthService } from './interfaces/auth'
+import { JwtService } from '@nestjs/jwt'
 
 @Injectable()
 export class AuthService implements IAuthService {
-  constructor(private readonly prismaService: PrismaService) {}
+  constructor(
+    private readonly prismaService: PrismaService,
+    private jwtService: JwtService
+  ) {}
 
   async createUser(user: User) {
     return this.prismaService.client.user.create({
@@ -59,5 +63,14 @@ export class AuthService implements IAuthService {
         discordId: params.discordId,
       },
     })
+  }
+
+  generateJwt(user: User): string {
+    const payload = {
+      discordId: user.discordId,
+      email: user.email,
+    }
+
+    return this.jwtService.sign(payload)
   }
 }

@@ -1,0 +1,130 @@
+$color-bluish: var(--tertiary-container);
+
+.button {
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-medium);
+    justify-content: center;
+
+    &--svg {
+      width: 50px;
+
+      & path {
+        fill: $color-bluish;
+      }
+    }
+  }
+}
+
+.c-button {
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.c-button--gooey {
+  color: $color-bluish;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: var(--spacing-xx-large);
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+  position: relative;
+  transition: all 700ms ease;
+  .c-button__blobs {
+    height: 100%;
+    filter: url(#goo);
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: -3px;
+    right: -1px;
+    z-index: -1;
+    div {
+      background-color: $color-bluish;
+      width: 34%;
+      height: 100%;
+      border-radius: 100%;
+      position: absolute;
+      transform: scale(1.4) translateY(125%) translateZ(0);
+      transition: all 700ms ease;
+      &:nth-child(1) {
+        left: -5%;
+      }
+      &:nth-child(2) {
+        left: 30%;
+        transition-delay: 60ms;
+      }
+      &:nth-child(3) {
+        left: 66%;
+        transition-delay: 25ms;
+      }
+    }
+  }
+  &:hover {
+    color: var(--on-tertiary-container);
+
+    .c-button__blobs {
+      div {
+        transform: scale(1.4) translateY(0) translateZ(0);
+      }
+    }
+
+    .button__content--svg path {
+      fill: var(--on-tertiary-container);
+      transition: fill 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+  }
+
+  &:not(:hover) {
+    .button__content--svg path {
+      fill: $color-bluish;
+      transition: fill 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+  }
+}
+
+$size: 40vh;
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes wave {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes waking {
+  100% {
+    left: calc(100% - #{$size});
+  }
+}
+
+@keyframes bounce {
+  100% {
+    bottom: -$size/1.5;
+  }
+}
+
+@keyframes blink {
+  0%,
+  5%,
+  30%,
+  37%,
+  100% {
+    height: $size/6;
+    border-width: $size/22;
+    transform: translateY(0);
+  }
+  3%,
+  33% {
+    height: 0;
+    border-width: 0;
+    transform: translateY(-$size/10);
+  }
+}
