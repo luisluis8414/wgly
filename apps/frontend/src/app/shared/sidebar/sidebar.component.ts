@@ -8,6 +8,7 @@ import { PillComponent } from '../pill/pill.component'
 import { RouterLink } from '@angular/router'
 import { PathResolverService } from '../../services/pathResolver.service'
 import { DiscordLoginComponent } from '../discord-login/discord-login.component'
+import { AuthentificationService } from '../../services/authentication.service'
 
 @Component({
   selector: 'wgly-sidebar',
@@ -49,8 +50,13 @@ import { DiscordLoginComponent } from '../discord-login/discord-login.component'
 export class SidebarComponent {
   protected sidebarCollapsed = true
   protected pathResolver = inject(PathResolverService)
+  private readonly authService = inject(AuthentificationService)
 
   clickToggleSidebar() {
     this.sidebarCollapsed = !this.sidebarCollapsed
+  }
+
+  protected discordLogin(): void {
+    this.authService.getDiscordLogin()
   }
 }

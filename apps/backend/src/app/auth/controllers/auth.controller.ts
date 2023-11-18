@@ -12,9 +12,7 @@ export class AuthController {
 
   @Get('login')
   @UseGuards(DiscordAuthGuard)
-  login() {
-    return { msg: 'Login' }
-  }
+  login() {}
 
   @Get('status')
   @UseGuards(AuthenticatedGuard)
