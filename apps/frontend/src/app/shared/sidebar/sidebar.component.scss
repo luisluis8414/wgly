@@ -7,11 +7,12 @@
   width: fit-content;
 
   .icon {
-    position: absolute;
     cursor: pointer;
-    padding: var(--spacing-large);
-    top: 0;
     left: 0;
+    padding: var(--spacing-large);
+    position: absolute;
+    top: 0;
+
     &--open {
       color: var(--text-color);
     }
@@ -21,18 +22,24 @@
     align-items: center;
     background-color: var(--tertiary);
     display: flex;
+    flex-direction: column;
     height: 100vh;
     justify-content: center;
     position: absolute;
-    width: 30vw;
     z-index: 100;
-
-    border-radius: 0 var(--border-radius-xx-large) var(--border-radius-xx-large)
-      0;
+    // border-radius: 0 var(--border-radius-xx-large) var(--border-radius-xx-large)
+    //   0;
     &__navItems {
       cursor: pointer;
       display: flex;
       flex-direction: column;
+      gap: var(--spacing-large);
+      width: 80%;
+    }
+
+    &__logins {
+      position: absolute;
+      bottom: 20px;
       width: 80%;
     }
   }
