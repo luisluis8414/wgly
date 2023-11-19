@@ -18,7 +18,6 @@ Learn more about [Nx generators on the docs](https://nx.dev/plugin-features/use-
 
 ## Running tasks
 
-test
 To execute tasks with Nx use the following syntax:
 
 ```
