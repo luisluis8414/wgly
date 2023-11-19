@@ -30,7 +30,6 @@ You can also run multiple targets:
 nx run-many -t <target1> <target2>
 ```
 
-test
 ..or add `-p` to filter specific projects
 
 ```
