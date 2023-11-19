@@ -25,16 +25,16 @@ export class AuthController {
   @Get('discord/redirect')
   @UseGuards(DiscordAuthGuard)
   redirect(@Req() req: Request, @Res() res: Response) {
-    const jwt = this.authService.generateJwt(req.user as User)
-    res.cookie('jwt', jwt, { httpOnly: true, secure: false })
-    const frontendUrl = 'http://localhost:4200'
-    res.redirect(frontendUrl)
+    res.cookie('jwt', this.authService.generateJwt(req.user as User), {
+      httpOnly: true,
+      secure: !!process.env.JWT_SECURE,
+    })
+    res.redirect(process.env.FRONTEND_URL)
   }
 
   @Get('status')
   @UseGuards(JwtAuthGuard)
-  status(@Req() req: Request) {
-    console.log(req)
+  status() {
     return 'test'
   }
 
