@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { AuthpageComponent } from './authpage.component'
 import { ActivatedRoute } from '@angular/router'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { HttpClientModule } from '@angular/common/http'
 
 describe('AuthpageComponent', () => {
   let component: AuthpageComponent
@@ -9,7 +10,7 @@ describe('AuthpageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AuthpageComponent, BrowserAnimationsModule],
+      imports: [AuthpageComponent, BrowserAnimationsModule, HttpClientModule],
       providers: [
         {
           provide: ActivatedRoute,
