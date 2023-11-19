@@ -30,9 +30,8 @@ async function bootstrap() {
 
   app.use(passport.session())
 
-  const port = process.env.PORT
-  await app.listen(port)
-  Logger.log(`🚀 Application is running on: http://localhost:${port}/`)
+  await app.listen(process.env.BACKEND_PORT)
+  Logger.log(`🚀 Application is running on: ${process.env.BACKEND_URL}`)
 }
 
 bootstrap()
