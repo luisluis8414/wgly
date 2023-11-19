@@ -107,7 +107,7 @@ $size: 40vh;
 
 @keyframes bounce {
   100% {
-    bottom: -$size/1.5;
+    bottom: calc(-1 * $size / 1.5);
   }
 }
 
@@ -117,14 +117,14 @@ $size: 40vh;
   30%,
   37%,
   100% {
-    height: $size/6;
-    border-width: $size/22;
+    height: calc($size/6);
+    border-width: calc($size/22);
     transform: translateY(0);
   }
   3%,
   33% {
     height: 0;
     border-width: 0;
-    transform: translateY(-$size/10);
+    transform: translateY(calc(-1 * $size / 10));
   }
 }
