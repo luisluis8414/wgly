@@ -6,9 +6,9 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { HeadingComponent } from '../heading/heading.component'
 import { PillComponent } from '../pill/pill.component'
 import { RouterLink } from '@angular/router'
-import { PathResolverService } from '../../services/pathResolver.service'
+import { PathResolverService } from '../../../services/pathResolver.service'
 import { DiscordLoginComponent } from '../discord-login/discord-login.component'
-import { AuthentificationService } from '../../services/authentication.service'
+import { AuthentificationService } from '../../../services/authentication.service'
 
 @Component({
   selector: 'wgly-sidebar',
@@ -58,16 +58,5 @@ export class SidebarComponent {
 
   protected discordLogin(): void {
     this.authService.getDiscordLogin()
-  }
-
-  test() {
-    this.authService.test().subscribe(
-      (response) => {
-        console.log(response) // Logging the response
-      },
-      (error) => {
-        console.error('Error:', error) // Handling errors
-      }
-    )
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { SidebarComponent } from '../shared/sidebar/sidebar.component'
-import { InputComponent } from '../shared/input/input.component'
+import { SidebarComponent } from '../shared/components/sidebar/sidebar.component'
+import { InputComponent } from '../shared/components/input/input.component'
 
 @Component({
   selector: 'wgly-shoppinglist',
