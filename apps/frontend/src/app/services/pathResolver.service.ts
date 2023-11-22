@@ -7,4 +7,8 @@ export class PathResolverService {
   getHome(): string {
     return '/home'
   }
+
+  getShopping(): string {
+    return '/shopping'
+  }
 }
