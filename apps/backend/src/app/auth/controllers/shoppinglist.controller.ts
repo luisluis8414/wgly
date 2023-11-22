@@ -1,5 +1,4 @@
-import { Controller, Get, UseGuards } from '@nestjs/common'
-import { JwtAuthGuard } from '../utils/Guards'
+import { Controller, Get } from '@nestjs/common'
 import { ShoppingItem } from '../../models/shopping-item.model'
 
 const shoppingList: ShoppingItem[] = [
@@ -21,9 +20,8 @@ const shoppingList: ShoppingItem[] = [
 ]
 
 @Controller('shopping')
-export class AuthController {
+export class ShoppingController {
   @Get('list')
-  @UseGuards(JwtAuthGuard)
   status(): ShoppingItem[] {
     return shoppingList
   }
