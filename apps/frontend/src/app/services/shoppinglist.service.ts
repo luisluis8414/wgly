@@ -15,7 +15,7 @@ export class ShoppingListService {
 
   addItemToList(name: string, quantity: number): Observable<ShoppingItem[]> {
     const params = new HttpParams()
-      .set('anzahl', quantity.toString())
+      .set('quantity', quantity.toString())
       .set('name', name)
     return this.http.get<ShoppingItem[]>(`${this.baseUri}/add`, { params })
   }
