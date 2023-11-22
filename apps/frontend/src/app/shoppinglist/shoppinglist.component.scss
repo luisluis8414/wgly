@@ -23,10 +23,14 @@
     box-shadow: 0 10px 30px rgba(#414856, 0.05);
     display: grid;
     grid-template-columns: 30px auto;
-    height: var(--height);
+    height: fit-content;
     padding: 30px 45px;
     position: relative;
     width: var(--width);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     label {
       align-items: center;
