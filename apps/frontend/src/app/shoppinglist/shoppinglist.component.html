@@ -1,0 +1,14 @@
+<wgly-sidebar></wgly-sidebar>
+<div id="checklist">
+  @for (item of shoppingList; track $index) {
+  <input id="{{ item.id }}" type="checkbox" name="r" value="{{ item.id }}" />
+  <label for="{{ item.id }}">{{ item.quantity }}x {{ item.name }}</label>
+  }
+</div>
+<div>
+  <input type="text" [formControl]="quantity" /><input
+    type="text"
+    [formControl]="name"
+    placeholder="Senf"
+  /><button (click)="addItem()">Add</button> <button>Done</button>
+</div>

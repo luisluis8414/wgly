@@ -2,11 +2,11 @@ version: '3.8'
 
 services:
   postgres-local:
-    container_name: postgres-local
+    container_name: postgres-local-wgly
     image: postgres:14.9-alpine3.18
     restart: always
     ports:
-      - '5432:5432'
+      - '${DB_PORT}:5432'
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}

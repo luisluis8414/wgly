@@ -27,7 +27,7 @@ export class AuthController {
   redirect(@Req() req: Request, @Res() res: Response) {
     res.cookie('jwt', this.authService.generateJwt(req.user as User), {
       httpOnly: true,
-      secure: !!process.env.JWT_SECURE,
+      secure: false,
     })
     res.redirect(process.env.FRONTEND_URL)
   }
@@ -35,11 +35,13 @@ export class AuthController {
   @Get('status')
   @UseGuards(JwtAuthGuard)
   status() {
-    return 'test'
+    return { message: 'U are authorized' }
   }
 
   @Post('logout')
   logout() {
-    return {}
+    return {
+      
+    }
   }
 }

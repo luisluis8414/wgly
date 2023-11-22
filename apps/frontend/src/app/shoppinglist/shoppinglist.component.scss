@@ -1,0 +1,203 @@
+:host {
+  align-items: center;
+  background-color: #414856;
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+
+  #checklist {
+    --background: #ffffff;
+    --border-radius: 10px;
+    --check: #4f29f0;
+    --disabled: #c3c8de;
+    --height: 100px;
+    --text: #414856;
+    --width: 200px;
+    align-items: center;
+    background: var(--background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(#414856, 0.05);
+    display: grid;
+    grid-template-columns: 30px auto;
+    height: fit-content;
+    padding: 30px 45px;
+    position: relative;
+    width: var(--width);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    label {
+      align-items: center;
+      color: var(--text);
+      cursor: pointer;
+      display: grid;
+      position: relative;
+      transition: color 0.3s ease;
+      width: fit-content;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+      }
+      &::before {
+        background: var(--check);
+        border-radius: 2px;
+        height: 2px;
+        left: -27px;
+        transition: background 0.3s ease;
+        width: 8px;
+      }
+      &:after {
+        border-radius: 50%;
+        height: 4px;
+        left: -25px;
+        top: 8px;
+        width: 4px;
+      }
+    }
+    input[type='checkbox'] {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      align-items: center;
+      background: var(--background);
+      border: 0;
+      cursor: pointer;
+      display: grid;
+      height: 15px;
+      margin: 0 15px 0 0;
+      outline: none;
+      position: relative;
+      width: 15px;
+
+      &::before,
+      &::after {
+        background: var(--check);
+        border-radius: 2px;
+        content: '';
+        height: 2px;
+        position: absolute;
+        top: auto;
+      }
+      &::before {
+        right: 60%;
+        transform-origin: right bottom;
+        width: 0px;
+      }
+      &::after {
+        left: 40%;
+        transform-origin: left bottom;
+        width: 0px;
+      }
+      &:checked {
+        &::before {
+          animation: check-01 0.4s ease forwards;
+        }
+        &::after {
+          animation: check-02 0.4s ease forwards;
+        }
+        + label {
+          animation: move 0.3s ease 0.1s forwards;
+          color: var(--disabled);
+
+          &::before {
+            animation: slice 0.4s ease forwards;
+            background: var(--disabled);
+          }
+          &::after {
+            animation: firework 0.5s ease forwards 0.1s;
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes move {
+    50% {
+      padding-left: 8px;
+      padding-right: 0px;
+    }
+    100% {
+      padding-right: 4px;
+    }
+  }
+  @keyframes slice {
+    60% {
+      left: 4px;
+      width: 100%;
+    }
+    100% {
+      left: -2px;
+      padding-left: 0;
+      width: 100%;
+    }
+  }
+  @keyframes check-01 {
+    0% {
+      top: auto;
+      transform: rotate(0);
+      width: 4px;
+    }
+    50% {
+      top: auto;
+      transform: rotate(0);
+      width: 0px;
+    }
+    51% {
+      top: 8px;
+      transform: rotate(45deg);
+      width: 0px;
+    }
+    100% {
+      top: 8px;
+      transform: rotate(45deg);
+      width: 5px;
+    }
+  }
+  @keyframes check-02 {
+    0% {
+      top: auto;
+      transform: rotate(0);
+      width: 4px;
+    }
+    50% {
+      top: auto;
+      transform: rotate(0);
+      width: 0px;
+    }
+    51% {
+      top: 8px;
+      transform: rotate(-45deg);
+      width: 0px;
+    }
+    100% {
+      top: 8px;
+      transform: rotate(-45deg);
+      width: 10px;
+    }
+  }
+  @keyframes firework {
+    0% {
+      opacity: 1;
+
+      box-shadow: 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0,
+        0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0;
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+
+      box-shadow: 0 -15px 0 0px #4f29f0, 14px -8px 0 0px #4f29f0,
+        14px 8px 0 0px #4f29f0, 0 15px 0 0px #4f29f0, -14px 8px 0 0px #4f29f0,
+        -14px -8px 0 0px #4f29f0;
+    }
+  }
+}
