@@ -1,30 +1,20 @@
-import { Controller, Get, UseGuards } from '@nestjs/common'
+import { Controller, Get, Query, UseGuards } from '@nestjs/common'
 import { JwtAuthGuard } from '../utils/Guards'
 import { ShoppingItem } from '../../models/shopping-item.model'
-
-const shoppingList: ShoppingItem[] = [
-  {
-    id: 1,
-    name: 'senf',
-    quantity: 10,
-  },
-  {
-    id: 2,
-    name: 'butter',
-    quantity: 3,
-  },
-  {
-    id: 3,
-    name: 'milch',
-    quantity: 1,
-  },
-]
+import { ShoppingListService } from '../services/shoppinglist.service'
 
 @Controller('shopping')
 export class ShoppingController {
+  constructor(private readonly shoppingService: ShoppingListService) {}
   @Get('list')
   @UseGuards(JwtAuthGuard)
-  status(): ShoppingItem[] {
-    return shoppingList
+  list(): ShoppingItem[] {
+    return this.shoppingService.getList()
+  }
+
+  @Get('add')
+  @UseGuards(JwtAuthGuard)
+  add(@Query() params: { name: string; quantity: string }): ShoppingItem[] {
+    return this.shoppingService.addItem(params.name, Number(params.quantity))
   }
 }
