@@ -10,7 +10,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule)
   dotenv.config()
   app.enableCors({
-    origin: 'http://localhost:4200',
+    origin: process.env.FRONTEND_URL,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   })
@@ -30,8 +30,9 @@ async function bootstrap() {
 
   app.use(passport.session())
 
-  await app.listen(process.env.BACKEND_PORT)
-  Logger.log(`🚀 Application is running on: ${process.env.BACKEND_URL}`)
+  const port = process.env.PORT
+  await app.listen(port)
+  Logger.log(`🚀 Application is running on: http://localhost:${port}/`)
 }
 
 bootstrap()
