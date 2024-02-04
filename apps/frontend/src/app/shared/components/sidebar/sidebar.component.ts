@@ -55,8 +55,4 @@ export class SidebarComponent {
   clickToggleSidebar() {
     this.sidebarCollapsed = !this.sidebarCollapsed
   }
-
-  protected discordLogin(): void {
-    this.authService.getDiscordLogin()
-  }
 }
