@@ -6,20 +6,20 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
-
 }
 
-model User {
-  discordId  String    @unique
-  discordTag String
-  email      String    @unique
-  avatar     String
-}
+// model User {
+//   id    Int     @id @default(autoincrement())
+//   email String  @unique
+//   name  String?
+//   shoppingItems ShoppingItem[]
+// }
 
-model OAuth2Credentials {
-  discordId    String   @unique
-  accessToken  String
-  refreshToken String
+model ShoppingItem {
+  ItemId    Int     @id @default(autoincrement())
+  name String
+  quantity Int
+  // user User @relation(fields: [ItemId], references: [id])
 }
