@@ -1,16 +1,14 @@
 import { Logger } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app/app.module'
-import session from 'express-session'
-import * as dotenv from 'dotenv'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
-  dotenv.config()
+
   app.enableCors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL ?? 'http://127.0.0.1:4200',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
+    credentials: false,
   })
 
   const port = process.env.PORT ?? 3000

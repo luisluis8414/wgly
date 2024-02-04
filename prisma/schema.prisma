@@ -18,7 +18,7 @@ datasource db {
 // }
 
 model ShoppingItem {
-  ItemId    Int     @id @default(autoincrement())
+  itemId    Int     @id @default(autoincrement())
   name String
   quantity Int
   // user User @relation(fields: [ItemId], references: [id])

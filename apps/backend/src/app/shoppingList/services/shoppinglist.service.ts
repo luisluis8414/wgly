@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, InternalServerErrorException } from '@nestjs/common'
 import { PrismaClient, ShoppingItem } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -10,12 +10,28 @@ export class ShoppingListService {
   }
 
   async addItem(name: string, quantity: number): Promise<ShoppingItem[]> {
-    await prisma.shoppingItem.create({
-      data: {
-        name: name,
-        quantity: quantity,
-      },
-    })
-    return await this.getList()
+    try {
+      await prisma.shoppingItem.create({
+        data: {
+          name: name,
+          quantity: quantity,
+        },
+      })
+      return await this.getList()
+    } catch (e) {
+      throw new InternalServerErrorException(e)
+    }
+  }
+
+  async deleteItem(id: number): Promise<void> {
+    try {
+      await prisma.shoppingItem.delete({
+        where: {
+          itemId: id,
+        },
+      })
+    } catch (e) {
+      throw new InternalServerErrorException(e)
+    }
   }
 }

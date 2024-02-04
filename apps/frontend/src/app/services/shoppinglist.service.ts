@@ -7,16 +7,22 @@ import { ShoppingItem } from '../shared/models/shopping-item.model'
 @Injectable()
 export class ShoppingListService {
   private readonly http = inject(HttpClient)
-  private readonly baseUri = `${environment.apiBaseUrl}/shopping`
+  private readonly baseUri = `${environment.apiBaseUrl}/shoppinglist`
 
-  getShopping(): Observable<ShoppingItem[]> {
-    return this.http.get<ShoppingItem[]>(`${this.baseUri}/list`)
+  getShoppingList(): Observable<ShoppingItem[]> {
+    console.log(this.baseUri)
+    const list = this.http.get<any[]>(`${this.baseUri}`)
+    list.subscribe((list) => {
+      console.log(list)
+    })
+    return list
   }
 
   addItemToList(name: string, quantity: number): Observable<ShoppingItem[]> {
-    const params = new HttpParams()
-      .set('quantity', quantity.toString())
-      .set('name', name)
-    return this.http.get<ShoppingItem[]>(`${this.baseUri}/add`, { params })
+    const body = {
+      name: name,
+      quantity: quantity,
+    }
+    return this.http.post<ShoppingItem[]>(`${this.baseUri}`, body)
   }
 }

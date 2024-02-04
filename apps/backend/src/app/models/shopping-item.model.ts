@@ -1,5 +1,5 @@
 export interface ShoppingItem {
-  id: number
+  itemId: number
   name: string
   quantity: number
 }

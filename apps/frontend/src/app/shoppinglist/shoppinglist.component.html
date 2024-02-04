@@ -1,8 +1,13 @@
 <wgly-sidebar></wgly-sidebar>
 <div id="checklist">
   @for (item of shoppingList; track $index) {
-  <input id="{{ item.id }}" type="checkbox" name="r" value="{{ item.id }}" />
-  <label for="{{ item.id }}">{{ item.quantity }}x {{ item.name }}</label>
+  <input
+    id="{{ item.itemId }}"
+    type="checkbox"
+    name="r"
+    value="{{ item.itemId }}"
+  />
+  <label for="{{ item.itemId }}">{{ item.quantity }}x {{ item.name }}</label>
   }
 </div>
 <div>
