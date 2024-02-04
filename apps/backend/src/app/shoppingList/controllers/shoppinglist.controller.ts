@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Delete,
-  Query,
-  Param,
-} from '@nestjs/common'
+import { Controller, Get, Post, Body, Delete, Param } from '@nestjs/common'
 import { ShoppingListService } from '../services/shoppinglist.service'
 import { ShoppingItem } from '@prisma/client'
 
@@ -28,6 +20,11 @@ export class ShoppingController {
 
   @Delete(':id')
   async delete(@Param('id') id: string): Promise<void> {
-    await this.shoppingService.deleteItem(Number(id))
+    await this.shoppingService.delete(Number(id))
+  }
+
+  @Post('delete')
+  async deleteBatch(@Body() ids: number[]): Promise<ShoppingItem[]> {
+    return await this.shoppingService.deleteBatch(ids)
   }
 }

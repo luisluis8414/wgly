@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { Injectable, inject } from '@angular/core'
 import { Observable } from 'rxjs'
 import { environment } from '../../environments/enviroment'
@@ -10,11 +10,7 @@ export class ShoppingListService {
   private readonly baseUri = `${environment.apiBaseUrl}/shoppinglist`
 
   getShoppingList(): Observable<ShoppingItem[]> {
-    console.log(this.baseUri)
-    const list = this.http.get<any[]>(`${this.baseUri}`)
-    list.subscribe((list) => {
-      console.log(list)
-    })
+    const list = this.http.get<ShoppingItem[]>(`${this.baseUri}`)
     return list
   }
 
@@ -24,5 +20,10 @@ export class ShoppingListService {
       quantity: quantity,
     }
     return this.http.post<ShoppingItem[]>(`${this.baseUri}`, body)
+  }
+
+  deleteBatch(ids: number[]): Observable<ShoppingItem[]> {
+    const body: number[] = ids
+    return this.http.post<ShoppingItem[]>(`${this.baseUri}/delete`, body)
   }
 }

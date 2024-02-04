@@ -1,19 +1,20 @@
 <wgly-sidebar></wgly-sidebar>
 <div id="checklist">
-  @for (item of shoppingList; track $index) {
+  @for (item of shoppingList.value; track $index) {
   <input
     id="{{ item.itemId }}"
     type="checkbox"
-    name="r"
+    [(ngModel)]="item.checked"
     value="{{ item.itemId }}"
   />
   <label for="{{ item.itemId }}">{{ item.quantity }}x {{ item.name }}</label>
   }
 </div>
 <div>
-  <input type="text" [formControl]="quantity" /><input
+  <input type="text" [formControl]="addItemQuantity" /><input
     type="text"
-    [formControl]="name"
+    [formControl]="addItemName"
     placeholder="Senf"
-  /><button (click)="addItem()">Add</button> <button>Done</button>
+  /><button (click)="addItem()">Add</button>
+  <button (click)="done()">Done</button>
 </div>

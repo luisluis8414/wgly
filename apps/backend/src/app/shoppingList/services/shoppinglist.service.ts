@@ -23,13 +23,28 @@ export class ShoppingListService {
     }
   }
 
-  async deleteItem(id: number): Promise<void> {
+  async delete(id: number): Promise<void> {
     try {
       await prisma.shoppingItem.delete({
         where: {
           itemId: id,
         },
       })
+    } catch (e) {
+      throw new InternalServerErrorException(e)
+    }
+  }
+
+  async deleteBatch(ids: number[]): Promise<ShoppingItem[]> {
+    try {
+      await prisma.shoppingItem.deleteMany({
+        where: {
+          itemId: {
+            in: ids,
+          },
+        },
+      })
+      return this.getList()
     } catch (e) {
       throw new InternalServerErrorException(e)
     }
