@@ -1,3 +1,4 @@
 # .vercelignore
 node_modules/
 .angular/
+vercel.json
