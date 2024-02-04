@@ -9,6 +9,27 @@
   justify-content: center;
   width: 100%;
 
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &__control {
+      display: flex;
+      justify-content: center;
+      width: 290px;
+
+      &--input {
+        width: 100%;
+      }
+
+      &--button {
+        background-color: #4f29f0;
+      }
+    }
+  }
+
   #checklist {
     --background: #ffffff;
     --border-radius: 10px;

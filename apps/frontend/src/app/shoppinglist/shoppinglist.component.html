@@ -10,11 +10,22 @@
   <label for="{{ item.itemId }}">{{ item.quantity }}x {{ item.name }}</label>
   }
 </div>
-<div>
-  <input type="text" [formControl]="addItemQuantity" /><input
-    type="text"
-    [formControl]="addItemName"
-    placeholder="Senf"
-  /><button (click)="addItem()">Add</button>
-  <button (click)="done()">Done</button>
+<div class="controls">
+  <div class="controls__control">
+    <input
+      class="controls__control--input"
+      type="text"
+      [formControl]="addItemQuantity"
+    />
+    <button class="controls__control--button" (click)="addItem()">Add</button>
+  </div>
+  <div class="controls__control">
+    <input
+      class="controls__control--input"
+      type="text"
+      [formControl]="addItemName"
+      placeholder="Senf"
+    />
+    <button class="controls__control--button" (click)="done()">Done</button>
+  </div>
 </div>
