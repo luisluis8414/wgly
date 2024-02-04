@@ -48,3 +48,5 @@ Thumbs.db
 .vercel
 
 vercel.json
+
+prisma/dev.db
