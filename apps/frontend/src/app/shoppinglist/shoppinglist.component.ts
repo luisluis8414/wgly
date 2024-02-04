@@ -48,6 +48,8 @@ export class ShoppinglistComponent implements OnInit {
       this.shoppingService
         .addItemToList(this.addItemName.value, this.addItemQuantity.value)
         .subscribe((list) => {
+          this.addItemName.setValue('')
+          this.addItemQuantity.setValue(1)
           this.shoppingList.setValue(list)
         })
     }

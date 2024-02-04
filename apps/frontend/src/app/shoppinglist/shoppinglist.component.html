@@ -1,4 +1,7 @@
 <wgly-sidebar></wgly-sidebar>
+@if(!shoppingList.value?.length){
+<div>No items in list</div>
+}@else {
 <div id="checklist">
   @for (item of shoppingList.value; track $index) {
   <input
@@ -10,6 +13,8 @@
   <label for="{{ item.itemId }}">{{ item.quantity }}x {{ item.name }}</label>
   }
 </div>
+}
+
 <div class="controls">
   <div class="controls__control">
     <input
