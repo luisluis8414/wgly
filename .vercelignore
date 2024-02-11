@@ -2,6 +2,5 @@
 node_modules/
 .angular/
 docker-compose.yml
-apps/frontend
 README.md
-4.0K    tsconfig.base.json
+tsconfig.base.json
