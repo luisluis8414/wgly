@@ -10,6 +10,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms'
+import { LoadingComponent } from '../shared/components/loading/loading.component'
 @Component({
   selector: 'wgly-shoppinglist',
   standalone: true,
@@ -22,10 +23,12 @@ import {
     InputComponent,
     ReactiveFormsModule,
     FormsModule,
+    LoadingComponent,
   ],
 })
 export class ShoppinglistComponent implements OnInit {
   private readonly shoppingService = inject(ShoppingListService)
+  protected isLoading = true
   protected shoppingList = new FormControl<ShoppingItem[]>([])
 
   protected addItemName = new FormControl('', {
@@ -40,6 +43,7 @@ export class ShoppinglistComponent implements OnInit {
   ngOnInit(): void {
     this.shoppingService.getShoppingList().subscribe((list) => {
       this.shoppingList.setValue(list)
+      this.isLoading = false
     })
   }
 
@@ -56,6 +60,7 @@ export class ShoppinglistComponent implements OnInit {
   }
 
   protected done(): void {
+    this.isLoading = true
     const checkedItems =
       this.shoppingList.value
         ?.filter((item) => item.checked)
@@ -63,6 +68,7 @@ export class ShoppinglistComponent implements OnInit {
     const newList = this.shoppingService.deleteBatch(checkedItems)
     newList.subscribe((list) => {
       this.shoppingList.setValue(list)
+      this.isLoading = false
     })
   }
 }
