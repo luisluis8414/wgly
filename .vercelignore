@@ -3,4 +3,3 @@ node_modules/
 .angular/
 docker-compose.yml
 README.md
-tsconfig.base.json
