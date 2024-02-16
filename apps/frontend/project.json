@@ -15,9 +15,15 @@
         "main": "apps/frontend/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/frontend/tsconfig.app.json",
-        "assets": ["apps/frontend/src/favicon.ico", "apps/frontend/src/assets"],
+        "assets": [
+          "apps/frontend/src/favicon.ico",
+          "apps/frontend/src/assets",
+          "apps/frontend/src/manifest.webmanifest"
+        ],
         "styles": ["apps/frontend/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "serviceWorker": true,
+        "ngswConfigPath": "apps/frontend/ngsw-config.json"
       },
       "configurations": {
         "production": {
